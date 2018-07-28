@@ -1,0 +1,17 @@
+Problema con SSH en la integración con Sublime Text
+
+Ejecutar en el cmd
+
+git config --global url."git@github.com:".insteadOf "https://github.com/"
+
+En GIT BASH
+
+Para generar la nueva clave RSA 
+
+cd ~/.ssh && ssh-keygen
+
+cat id_rsa.pub --> Para acceder a la clave publica
+
+Dicha clave tiene que ser ingresada en Github como una key de acceso read/write
+
+Ya asi se podra acceder al respositorio
