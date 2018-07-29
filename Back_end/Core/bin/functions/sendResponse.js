@@ -4,15 +4,16 @@ var sendReply = function(responseHTTP, retOperación, error) {
 			msj: {
 				http: 500,
 				tipo: 'E',
-				descripcion: 'Error de funcionalidad en el servidor'
+				descripcion: 'Error de funcionalidad en el servidor',
+				data : null
 			}
 		};
 		// Exito en la operación
-		if (typeof retOperación === 'object' && retOperación != null) {
+		if (typeof retOperación === 'object') {
 			jsonRespuesta.msj.http = 200;
 			jsonRespuesta.msj.tipo = 'I';  // I = Información
-			jsonRespuesta.msj.descripcion = 'Operación exitosa';
-			jsonRespuesta.data = retOperación;
+			jsonRespuesta.msj.descripcion = retOperación.msje;
+			if (retOperación.data != null) jsonRespuesta.msj.data = retOperación.data;
 		}
 
 		// Error

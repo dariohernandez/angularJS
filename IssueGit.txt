@@ -15,3 +15,7 @@ cat id_rsa.pub --> Para acceder a la clave publica
 Dicha clave tiene que ser ingresada en Github como una key de acceso read/write
 
 Ya asi se podra acceder al respositorio
+
+https://www.azulweb.net/integra-git-en-sublime-text-3/
+
+https://github.com/kemayo/sublime-text-git/issues/176

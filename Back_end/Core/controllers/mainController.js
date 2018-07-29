@@ -19,8 +19,7 @@ router.get('/producto', function (req, res, next) {
 					sendReply(res,retorno, err.message);
 			}
 			else {
-				
-				con.ejecutaQuery("SELECT * FROM producto;", function(data){
+				con.ejecutaQuery("SELECT * FROM producto;",null, function(data){
 					sendReply(res,data);
 				});
 
