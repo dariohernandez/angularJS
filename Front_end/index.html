@@ -1,9 +1,10 @@
 <html ng-app="sistemaVentas">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!--jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-    <script src="app.js"></script>
+    <!--Librerias de AngularJS-->
+    <script src="./app/libraries/angular.min.js"></script>
+    <script src="./app/libraries/angular-route.min.js"></script>
+    <script src="./app.js"></script>
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="0" />
@@ -14,25 +15,36 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <script type="text/javascript" ng-src='{{INFO_APP["DIR_FOLDER_APP"] +"js/jquery-2.2.3.min.js"}}'></script>
-    <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" ng-href='{{INFO_APP["DIR_FOLDER_APP"] +"bootstrap/bootstrap.min.css"}}' />
+    <!--jquery-->
+    <script type="text/javascript" src="./app/js/jquery-2.2.3.min.js"></script>
+    <!-- Estilos de bootstrap -->
+    <link rel="stylesheet" type="text/css" href="./app/css/bootstrap.min.css" />
     <!--Estilo General -->
-    <link rel="stylesheet" type="text/css" ng-href='{{INFO_APP["DIR_FOLDER_APP"]+ "css/Estilo.css"}}' />
+    <link rel="stylesheet" type="text/css" href="./app/css/Estilo.css" />
+
+    <!-- Controladores-->
+    <script src="./Controllers/productoController.js"></script>
+
+
 
     <title>{{INFO_APP["NOMB_APP"]}}</title>
     
 </head>
-<body ng-controller="HomeController">
+<body>
+
+<div ng-include="'./Views/general/header.html'"></div> <!-- Incluir el header y el menu de navegación -->
         <!-- end of menu tab -->
         <div id="contenido_central" class="container">
-		<h1>{{INFO_APP["DIR_APP"]}}</h1>
 
-            <div id="content_dinamico" class="center_content col-xs-12 col-md-10 col-md-offset-1 col-lg-offset-1">
+            <div id="content_dinamico" class="center_content col-xs-12 col-md-10 col-md-offset-1 col-lg-offset-1" ng-view>
               
             </div>
                 
         </div>
-<script type="text/javascript" ng-src='{{INFO_APP["DIR_FOLDER_APP"] +"js/bootstrap.min.js"}}'></script>
+<!-- Scripts de bootstrap -->
+<script type="text/javascript" src="./app/js/bootstrap.min.js"></script>
+
+<!-- Incluir el footer -->
+<div ng-include="'./Views/general/footer.html'"></div>
 </body>
 </html>

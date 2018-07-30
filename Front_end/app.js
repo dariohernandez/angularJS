@@ -1,9 +1,9 @@
-var app = angular.module("sistemaVentas",[])
+var app = angular.module("sistemaVentas",["ngRoute"]);
 app.constant("CONST_APP", {
-	"DIR_HTML" : "Views/HTML/",
-	"DIR_FOLDER_APP" : "Views/app/",
+	"DIR_HTML" : "Views/",
+	"DIR_FOLDER_APP" : "app/",
 	"NOMB_APP" : "Mundo Electro",
-	"DERECHO_COPY":"Copyright &copy",
+	"DERECHO_COPY":"Copyright © MundoElectro",
 	"DIR_APP" : "http://localhost/AngularJS/"
 });
 app.run(['$rootScope', 'CONST_APP',function($rootScope, CONST_APP) {
@@ -14,5 +14,12 @@ app.run(['$rootScope', 'CONST_APP',function($rootScope, CONST_APP) {
   }
 }]);
 
-app.controller("HomeController", function ($scope){
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : 'Views/home/home.html'
+    });
 });
+
+// app.controller("HomeController", function ($scope){
+// });

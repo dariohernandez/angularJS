@@ -1,6 +1,4 @@
-<?php 
-
-class Usuario{
+var = Usuario {
 
 	private $ID_Usuario;
 	private $NombreUsuario;
