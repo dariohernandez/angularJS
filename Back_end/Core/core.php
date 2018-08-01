@@ -42,4 +42,3 @@ require("Core/models/class.Usuario.php"); // Clase encargada del manejo de usuar
 
 
 $users=getUsers();
-?>

@@ -13,7 +13,10 @@ router.get('/', function (req, res, next) {
 					sendReply(res,retorno, err.message);
 			}
 			else {
-				con.ejecutaQuery("SELECT * FROM producto;", null, function(data){
+				query ="SELECT * FROM producto";
+				if(req.query.filtros) query += " WHERE NombreProducto LIKE '"+req.query.filtros.searchProd+"'";
+				console.log(query);
+				con.ejecutaQuery(query, null, function(data){
 					sendReply(res,data);
 				});
 

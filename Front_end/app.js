@@ -17,7 +17,12 @@ app.run(['$rootScope', 'CONST_APP',function($rootScope, CONST_APP) {
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : 'Views/home/home.html'
+        templateUrl : 'Views/home/home.html',
+    })
+    .when("/producto", {
+        templateUrl : 'Views/producto/productoIndex.html',
+        controller: 'productoController',
+        controllerAs: 'vm'
     });
 });
 

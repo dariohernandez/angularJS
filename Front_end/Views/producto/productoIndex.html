@@ -1,0 +1,33 @@
+<div ng-hide='vm.nonProd' ng-repeat='producto in productos' class='col-sm-6 col-xs-12 item_prod'>
+    <div class='center_title_bar'>
+        <span id="lblNombreProd_{{producto.CodArticulo}}">{{producto.NombreProducto}}</span></div>
+    <div class='row'>
+        <div class='col-xs-12 col-sm-5'>
+            <div class='container-fluid contImg'>
+                <img class='img_prod' id="imgProducto{{producto.CodArticulo}}" src='../Back_end/Components/{{producto.Imagen_URL}}'/>
+            </div>
+        </div>
+        <div class='col-xs-12 col-sm-7 prod_price_big'>
+            <div class='contPrecios col-xs-12'>
+                <div>
+                    <span id='lblPrecio_{{producto.CodArticulo}}' class='price'>{{producto.Precio}}</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="{{producto.CodArticulo}}" class='col-xs-12'>
+        <div class='producto_descr'>
+            <span id='lblDescripcrion_{{producto.CodArticulo}}'>{{producto.Descripcion}}</span></div>
+    </div>
+    
+    <div class='clearfix'>
+    </div>
+    
+    <div class='col-xs-12'>
+        <div class='specifications'>
+                Garantia:
+                <span id='lblGarantia_{{producto.CodArticulo}}' class='blue'>{{producto.Garantia}}</span></div>
+    </div>
+</div>
+ <h3 ng-show='vm.nonProd' class='text-info'> No se encontraron productos para mostrar</h3>
