@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path= require('path');
 const mainController = require('./Core/controllers/mainController.js');
-//const manejadorErrores = require('./Core/bin/functions/manejadorError.js');
 
 const app = express();
 
@@ -24,6 +23,8 @@ app.use(function(req, res, next) {
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	next();
 });
+
+//require("./Core/bin/function.js")();
 
 //Funciones general para manejar errores
 //app.use(manejadorErrores);

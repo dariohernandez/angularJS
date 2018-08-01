@@ -5,6 +5,7 @@ productoController.$inject=['$scope','apiService'];
 function productoController($scope, apiService){
 
 	$scope.callService = function(parametros = {}){
+
 		apiService.request('producto', 'search', parametros, null, null)
 		.then(function(response) {
 			$scope.productos= response;
@@ -18,7 +19,7 @@ function productoController($scope, apiService){
 		if(!$scope.txtBuscarProd) $scope.msjeRetorno = "Se debe ingresar un producto"; 
 		else {
 			var parameters = {
-			filtro: 'searchProd=%' + $scope.txtBuscarProd + '%'
+			filtro: 'NombreProducto=%' + $scope.txtBuscarProd + '%'
 		};
 
 		this.callService(parameters);

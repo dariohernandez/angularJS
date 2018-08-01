@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const dbConexion = require("../../models/DBConexion.js");
-const sendReply = require('../bin/functions/sendResponse.js');
+const sendReply = require('../bin/sendResponse.js');
+const manejadorError = require('../bin/manejadorError.js');
 
 router.get('/', function (req, res, next) {
 
@@ -13,14 +14,21 @@ router.get('/', function (req, res, next) {
 					sendReply(res,retorno, err.message);
 			}
 			else {
+				
 				query ="SELECT * FROM producto";
-				if(req.query.filtros) query += " WHERE NombreProducto LIKE '"+req.query.filtros.searchProd+"'";
+				
+				var filtrosParse= require('../bin/parsearQS.js')(req.query);
+
+				console.log(filtrosParse);
+
+				//query += " WHERE NombreProducto LIKE "+ filtrosParse.NombreProducto;
+
 				console.log(query);
+
 				con.ejecutaQuery(query, null, function(data){
 					sendReply(res,data);
 				});
 
-				//sendReply(res,retorno);
 			}
 	});
 	} catch(e){
