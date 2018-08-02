@@ -4,6 +4,8 @@
     <!--Librerias de AngularJS-->
     <script src="./app/libraries/angular.min.js"></script>
     <script src="./app/libraries/angular-route.min.js"></script>
+    <!--script src="./app/libraries/angular-ui-router.min.js"></script-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.19/angular-ui-router.min.js"></script>
     <script src="./app.js"></script>
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
@@ -37,7 +39,7 @@
         <!-- end of menu tab -->
         <div id="contenido_central" class="container">
 
-            <div id="content_dinamico" class="center_content col-xs-12 col-md-10 col-md-offset-1 col-lg-offset-1" ng-view>
+            <div id="content_dinamico" class="center_content col-xs-12 col-md-10 col-md-offset-1 col-lg-offset-1" ui-view>
               
             </div>
                 

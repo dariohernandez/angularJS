@@ -10,7 +10,7 @@ function apiService($http, $q){
 
 	var request = function request(resource, operation, parameters, resourceID, body){
 
-		//var deferred = $q.defer();
+		var deferred = $q.defer();
 		switch (operation) {
 
 			case "read":
@@ -20,9 +20,7 @@ function apiService($http, $q){
 				return _search(resource, parameters);
 
 		}
-		
-	
-
+		return deferred.promise;
 	}
 
 	var _read = function(resource, params, resourceID){

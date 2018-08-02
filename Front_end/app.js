@@ -1,4 +1,4 @@
-var app = angular.module("sistemaVentas",["ngRoute"]);
+var app = angular.module("sistemaVentas",["ngRoute","ui.router"]);
 app.constant("CONST_APP", {
 	"DIR_HTML" : "Views/",
 	"DIR_FOLDER_APP" : "app/",
@@ -14,15 +14,25 @@ app.run(['$rootScope', 'CONST_APP',function($rootScope, CONST_APP) {
   }
 }]);
 
-app.config(function($routeProvider) {
-    $routeProvider
-    .when("/", {
-        templateUrl : 'Views/home/home.html',
+
+app.config(function($stateProvider, $urlRouterProvider) {
+
+  // default route
+  $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+    .state('home', {
+        url: '/',
+        templateUrl : 'Views/home/home.html'
     })
-    .when("/producto", {
+    .state('producto', {
+        url: '/producto',
         templateUrl : 'Views/producto/productoIndex.html',
         controller: 'productoController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        params: {
+        filtro: null
+        }
     });
 });
 

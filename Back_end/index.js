@@ -24,8 +24,6 @@ app.use(function(req, res, next) {
 	next();
 });
 
-//require("./Core/bin/function.js")();
-
 //Funciones general para manejar errores
 //app.use(manejadorErrores);
 

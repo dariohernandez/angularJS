@@ -16,16 +16,18 @@ router.get('/', function (req, res, next) {
 			else {
 				
 				query ="SELECT * FROM producto";
-				
+
+				if (req.query.filtros){
+
 				var filtrosParse= require('../bin/parsearQS.js')(req.query);
 
-				console.log(filtrosParse);
+				query += " WHERE NombreProducto LIKE ";
+				query += filtrosParse["NombreProducto"];
 
-				//query += " WHERE NombreProducto LIKE "+ filtrosParse.NombreProducto;
-
-				console.log(query);
+				}
 
 				con.ejecutaQuery(query, null, function(data){
+					console.log(data);
 					sendReply(res,data);
 				});
 

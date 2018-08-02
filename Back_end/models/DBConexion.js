@@ -43,4 +43,8 @@ var connection = function(){
     } 
 } 
 
-module.exports.connection = connection; 
+module.exports = {
+
+  connection: connection
+
+}; // o module.exports.connection = connection;

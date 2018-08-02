@@ -1,3 +1,5 @@
+<!--button ng-click="buscarProducto()"> Buscar</button-->
+<h3 ng-show='vm.nonProd' class='text-info'> No se encontraron productos para mostrar</h3>
 <div ng-hide='vm.nonProd' ng-repeat='producto in productos' class='col-sm-6 col-xs-12 item_prod'>
     <div class='center_title_bar'>
         <span id="lblNombreProd_{{producto.CodArticulo}}">{{producto.NombreProducto}}</span></div>
@@ -30,4 +32,3 @@
                 <span id='lblGarantia_{{producto.CodArticulo}}' class='blue'>{{producto.Garantia}}</span></div>
     </div>
 </div>
- <h3 ng-show='vm.nonProd' class='text-info'> No se encontraron productos para mostrar</h3>
