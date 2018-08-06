@@ -25,6 +25,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: '/',
         templateUrl : 'Views/home/home.html'
     })
+    .state('productoCreate', {
+        url: '/productoCreate',
+        templateUrl : 'Views/producto/productoCreate.html',
+        controller: 'productoController',
+        controllerAs: 'vm'
+    })
     .state('producto', {
         url: '/producto',
         templateUrl : 'Views/producto/productoIndex.html',

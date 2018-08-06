@@ -4,34 +4,39 @@ productoController.$inject=['$scope','apiService','$state', '$stateParams'];
 
 function productoController($scope, apiService, $state, $stateParams){
 
-	$scope.callService = function(parametros = {}){
+	var vm = this;
+
+	vm.submited = false;
+
+	vm.callService = function(parametros = {}){
 
 		apiService.request('producto', 'search', parametros, null, null)
 		.then(function(response) {
-			$scope.productos = response;
-			(!$scope.productos || $scope.productos.length == 0) ? $scope.nonProd = true : $scope.nonProd = false;
-			console.log($scope.nonProd)
+			vm.productos = response;
+			(!vm.productos || vm.productos.length == 0) ? vm.nonProd = true : vm.nonProd = false;
+			console.log(vm.nonProd)
 		}, function(err) {
 			console.error(err);
 		});
 	};
 
-				// $scope.$watch( function() {
-				// 	return $scope.productos;
-				// }, function(newValue) {
-				// 	$state.go('producto');
-				//   //update the DOM with newValue
-				// });
+	vm.buscarProducto = function(){
 
-	$scope.buscarProducto = function(){
-
-		if(!$scope.txtBuscarProd) $scope.msjeRetorno = "Se debe ingresar un producto"; 
+		if(!vm.txtBuscarProd) vm.msjeRetorno = "Se debe ingresar un producto"; 
 		else {
-			var parameters = 'NombreProducto="%' + $scope.txtBuscarProd + '%"';
+			var parameters = 'NombreProducto="%' + vm.txtBuscarProd + '%"';
 
-		$state.go('producto', {filtro:parameters});
+			$state.go('producto', {filtro:parameters});
 		}
 	};
 
-	$scope.callService($stateParams);
+
+	vm.crearProducto = function(){
+
+	vm.submited = true;
+	console.log("aca");
+
+	};
+
+	vm.callService($stateParams); //Inicializa la vista con el scope de productos
 }
